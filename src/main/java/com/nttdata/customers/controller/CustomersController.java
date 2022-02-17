@@ -52,7 +52,7 @@ public class CustomersController {
         return customersService.findById(id);
     }
 
-    @GetMapping("/{code}")
+    @GetMapping("/bycode/{code}")
     @ResponseStatus(HttpStatus.OK)
     public  Mono<Customers> findCustomerCode(@PathVariable String code){
         System.out.println("Buscar cliente por su codigo");
