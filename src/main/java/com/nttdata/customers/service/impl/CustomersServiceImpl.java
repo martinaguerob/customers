@@ -6,18 +6,16 @@ import com.nttdata.customers.service.CustomersService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Date;
 
 @Service
 public class CustomersServiceImpl implements CustomersService {
 	
 	@Autowired
     private CustomersRepository customersRepository;
-
-    @Autowired
-    RestTemplate restTemplate;
 
     @Override
     public Flux<Customers> findAll() {
@@ -27,6 +25,7 @@ public class CustomersServiceImpl implements CustomersService {
     @Override
     public Mono<Customers> save(Customers entity) {
         entity.setStatus(true);
+        entity.setDate(new Date());
         return customersRepository.save(entity);
     }
 
@@ -39,7 +38,6 @@ public class CustomersServiceImpl implements CustomersService {
                     origin.setStatus(entity.getStatus());
                     origin.setCode(entity.getCode());
                     origin.setNroDoc(entity.getNroDoc());
-                    origin.setIdProfile(entity.getIdProfile());
                     origin.setTypeDoc(entity.getTypeDoc());
                     return customersRepository.save(origin);
                 });
@@ -66,8 +64,8 @@ public class CustomersServiceImpl implements CustomersService {
     }
 
     @Override
-    public Flux<Customers> findByProfiles(String idProfile) {
-        return customersRepository.findByIdProfile(idProfile);
+    public Flux<Customers> findByCodProfile(String CodProfile) {
+        return customersRepository.findByCodProfile(CodProfile);
     }
 
 }

@@ -1,7 +1,6 @@
 package com.nttdata.customers.controller;
 
 import com.nttdata.customers.entity.Customers;
-import com.nttdata.customers.model.Profiles;
 import com.nttdata.customers.service.CustomersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,8 +59,8 @@ public class CustomersController {
     }
 
     @GetMapping("/byprofile/{profileId}")
-    public Flux<Customers> getByProfileId(@PathVariable String profileId){
+    public Flux<Customers> getByProfileId(@PathVariable String codProfile){
         System.out.println("Listar clientes por perfil");
-        return  customersService.findByProfiles(profileId);
+        return  customersService.findByCodProfile(codProfile);
     }
 }

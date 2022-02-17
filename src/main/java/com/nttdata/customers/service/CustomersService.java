@@ -8,5 +8,5 @@ import reactor.core.publisher.Mono;
 public interface CustomersService extends CrudService<Customers, String>{
     Mono<Customers>findById(String id);
     Mono<Customers>findByCode(String code);
-    Flux<Customers>findByProfiles(String idProfile);
+    Flux<Customers>findByCodProfile(String CodProfile);
 }

@@ -8,5 +8,5 @@ import reactor.core.publisher.Mono;
 public interface CustomersRepository extends ReactiveMongoRepository<Customers, String> {
 
     Mono<Customers>findByCode(String code);
-    Flux<Customers>findByIdProfile(String idProfile);
+    Flux<Customers>findByCodProfile(String CodProfile);
 }
