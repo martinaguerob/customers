@@ -58,7 +58,7 @@ public class CustomersController {
         return customersService.findByCode(code);
     }
 
-    @GetMapping("/byprofile/{profileId}")
+    @GetMapping("/byprofile/{codProfile}")
     public Flux<Customers> getByProfileId(@PathVariable String codProfile){
         System.out.println("Listar clientes por perfil");
         return  customersService.findByCodProfile(codProfile);
