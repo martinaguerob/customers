@@ -63,4 +63,11 @@ public class CustomersController {
         System.out.println("Listar clientes por perfil");
         return  customersService.findByCodProfile(codProfile);
     }
+
+    @GetMapping("/{id}/{codProfile}")
+    @ResponseStatus(HttpStatus.OK)
+    public  Mono<Customers> findCustomerCode(@PathVariable String id, String codProfile){
+        System.out.println("Buscar cliente por su id y codigo");
+        return customersService.findByIdAndCodProfile(id, codProfile);
+    }
 }

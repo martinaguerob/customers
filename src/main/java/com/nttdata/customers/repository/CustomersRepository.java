@@ -9,4 +9,5 @@ public interface CustomersRepository extends ReactiveMongoRepository<Customers, 
 
     Mono<Customers>findByCode(String code);
     Flux<Customers>findByCodProfile(String CodProfile);
+    Mono<Customers>findByIdAndCodProfile(String id, String codProfile);
 }

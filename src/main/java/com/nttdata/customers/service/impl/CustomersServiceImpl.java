@@ -68,4 +68,9 @@ public class CustomersServiceImpl implements CustomersService {
         return customersRepository.findByCodProfile(CodProfile);
     }
 
+    @Override
+    public Mono<Customers> findByIdAndCodProfile(String id, String codProfile) {
+        return customersRepository.findByIdAndCodProfile(id, codProfile);
+    }
+
 }
